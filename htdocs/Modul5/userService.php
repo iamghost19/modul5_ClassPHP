@@ -26,18 +26,29 @@ class userService
 
 function histories($email)
 	{
-	if ($email=="rifqikel25@gmail.com")
+	$sejarah=array();
+	$sejarah [0][0]="rifqikel25@gmail.com";
+	$sejarah [0][1]="buku: sisdig";
+	$sejarah [0][2]="buku: eldas";
+	$sejarah [0][3]="tanggal: 25-4-2020";
+	$sejarah [1][0]="anharkel25@gmail.com";
+	$sejarah [1][1]="buku: strukdat";
+	$sejarah [1][2]="buku: Jarkom";
+	$sejarah [1][3]="tanggal: 25-4-2020";
+	
+	$len=count($sejarah);
+	for	($i= 0; $i< $len; $i++)
+	{
+		if (($sejarah[$i][0])==$email)
 		{
-		echo "buku 1: Sisdig<br>";
-		echo "buku 2: Eldas<br>";
-		echo "tanggal: 25-4-2020";
+			echo $sejarah[$i][1];
+			echo '<br>';
+			echo $sejarah[$i][2];
+			echo '<br>';
+			echo $sejarah[$i][3];
 		}
-	elseif ($email=="anharkel25@gmail.com")
-		{
-		echo "buku 1: Strukdat<br>";
-		echo "buku 2: jarkom<br>";
-		echo "tanggal: 25-4-2020";
-		}
+	}
+	
 	}
     public function login()
     {
