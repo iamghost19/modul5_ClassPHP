@@ -22,10 +22,6 @@ class userService
         ];
        $this->email = $email;
        $this->password = $password;
-    }
-
-function histories($email)
-	{
 	$sejarah=array();
 	$sejarah [0][0]="rifqikel25@gmail.com";
 	$sejarah [0][1]="buku: sisdig";
@@ -34,21 +30,24 @@ function histories($email)
 	$sejarah [1][0]="anharkel25@gmail.com";
 	$sejarah [1][1]="buku: strukdat";
 	$sejarah [1][2]="buku: Jarkom";
-	$sejarah [1][3]="tanggal: 25-4-2020";
-	
-	$len=count($sejarah);
+	$sejarah [1][3]="tanggal: 25-4-2020";	
+	$this->histori=$sejarah;
+    }
+function histories($email)
+	{
+	$sej=$this->histori;
+	$len=count($sej);
 	for	($i= 0; $i< $len; $i++)
 	{
-		if (($sejarah[$i][0])==$email)
+		if (($sej[$i][0])==$email)
 		{
-			echo $sejarah[$i][1];
+			echo $sej[$i][1];
 			echo '<br>';
-			echo $sejarah[$i][2];
+			echo $sej[$i][2];
 			echo '<br>';
-			echo $sejarah[$i][3];
+			echo $sej[$i][3];
 		}
 	}
-	
 	}
     public function login()
     {
@@ -67,6 +66,7 @@ function histories($email)
             if($value->email == $this->email && $value->password == $this->password) {
                 return $value;
             }
+			
         }
         return false;
     }
